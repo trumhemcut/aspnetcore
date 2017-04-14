@@ -1,7 +1,7 @@
 pipeline {
   agent {
-    docker {
-      image 'stepone/cibuild'
+    dockerfile {
+      filename 'Dockerfile'
     }
     
   }
