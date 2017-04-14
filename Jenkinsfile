@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Unit Test') {
       steps {
-        sh 'dotnet test ./test/test.csproj'
+        sh 'cd test && dotnet restore && dotnet test'
       }
     }
   }
