@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'dotnet restore'
+        sh 'docker ps'
       }
     }
     stage('Unit Test') {
