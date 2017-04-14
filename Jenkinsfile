@@ -18,7 +18,7 @@ pipeline {
     }
     stage('Staging') {
       steps {
-        sh 'dotnet run'
+        sh 'cd.. && dotnet run'
       }
     }
   }
