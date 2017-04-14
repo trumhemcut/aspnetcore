@@ -16,5 +16,10 @@ pipeline {
         sh 'cd test && dotnet restore && dotnet test'
       }
     }
+    stage('Staging') {
+      steps {
+        sh 'dotnet run'
+      }
+    }
   }
 }
