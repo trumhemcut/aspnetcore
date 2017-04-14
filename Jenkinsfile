@@ -13,12 +13,12 @@ pipeline {
     }
     stage('Unit Test') {
       steps {
-        sh 'cd test && dotnet restore && dotnet test'
+        sh 'cd test && dotnet restore && dotnet test --logger "trx;LogFileName=abc.trx"'
       }
     }
     stage('Staging') {
       steps {
-        sh 'cd.. && dotnet run'
+        sh 'cd .. && dotnet run'
       }
     }
   }
