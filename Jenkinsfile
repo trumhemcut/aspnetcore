@@ -1,9 +1,15 @@
 pipeline {
-  agent any
+  agent {
+    docker {
+      image 'microsoft/aspnetcore-build:1.0-1.1'
+      args '-v '
+    }
+    
+  }
   stages {
-    stage('Initialize') {
+    stage('Build') {
       steps {
-        echo 'Hello World'
+        sh 'dotnet restore'
       }
     }
   }
