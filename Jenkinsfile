@@ -8,7 +8,9 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'dotnet restore'
+        sh '''dotnet restore
+dotnet build
+dotnet publish -c Release -o ./artifacts'''
       }
     }
     stage('Unit Test') {
