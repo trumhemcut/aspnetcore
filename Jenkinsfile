@@ -8,7 +8,8 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh '''dotnet restore
+        sh '''cd src
+dotnet restore
 dotnet build
 dotnet publish -c Release -o ./artifacts'''
       }
@@ -20,7 +21,7 @@ dotnet publish -c Release -o ./artifacts'''
     }
     stage('Staging') {
       steps {
-        sh 'dotnet restore && dotnet run'
+        sh 'dotnet src && restore && dotnet run'
       }
     }
   }
