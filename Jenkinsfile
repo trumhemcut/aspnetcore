@@ -21,7 +21,7 @@ dotnet publish -c Release -o ./artifacts'''
     }
     stage('Staging') {
       steps {
-        sh 'dotnet src && restore && dotnet run'
+        sh 'cd src && dotnet restore && dotnet run'
       }
     }
   }
