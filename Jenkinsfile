@@ -16,7 +16,16 @@ dotnet publish -c Release -o ./artifacts'''
     }
     stage('Unit Test') {
       steps {
-        sh 'cd test && dotnet restore && dotnet test --logger "trx;LogFileName=abc.trx"'
+        parallel(
+          "Unit Test": {
+            sh 'cd test && dotnet restore && dotnet test --logger "trx;LogFileName=abc.trx"'
+            
+          },
+          "Integration Test": {
+            sh 'echo \'Hello this is integration test\''
+            
+          }
+        )
       }
     }
     stage('Staging') {
