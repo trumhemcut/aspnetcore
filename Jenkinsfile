@@ -33,5 +33,13 @@ dotnet publish -c Release -o ./artifacts'''
         sh 'cd src && dotnet restore && dotnet run'
       }
     }
+    stage('Notify Gitlab') {
+      steps {
+        gitlabCommitStatus(name: 'build') {
+          sh 'echo \'Hello\''
+        }
+        
+      }
+    }
   }
 }
